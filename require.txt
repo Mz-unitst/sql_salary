@@ -1,0 +1,13 @@
+click==7.1.2
+pip==21.1.2
+PyMySQL==1.0.2
+pyqt5-plugins==5.15.4.2.2
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.9.1
+pyqt5-tools==5.15.4.3.2
+PyQt5==5.15.4
+python-dotenv==0.20.0
+qt5-applications==5.15.2.2.2
+qt5-tools==5.15.2.1.2
+setuptools==57.0.0
+wheel==0.36.2
