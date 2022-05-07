@@ -23,7 +23,7 @@ class login_window(QMainWindow, Ui_login_window):
         else:
             self.username = int(a)
         self.password = str(b)
-        print(self.username, self.password)
+        print(self.username, self.password,type(self.username),type(self.password))
         if is_admin == True:
             print('admin login')
             self.login_admin()
@@ -56,26 +56,34 @@ class login_window(QMainWindow, Ui_login_window):
 
     def login_staff(self):
         try:
+            self.user = User()
+            print('cnm')
+            cursor1=self.user.db.cursor()
             print('start login staff')
-            # a=self.user.cursor.mogrify(
-            #     "select * from staff_info where sno=%d and password=md5('%s')" % (self.username, self.password))
-            # print(a)
+            a=cursor1.mogrify(
+                "select * from staff_info where sno=%d and password=md5('%s')" % (int(self.username), self.password))
+            print(a)
             #类型错误 无语
-            self.user.cursor.execute(
-                "select * from staff_info where sno=%d and password=md5('%s')" % (self.username, self.password))
+            cursor1.execute(
+                "select * from staff_info where sno=%d and password=md5('%s')" % (int(self.username), self.password))
             self.user.db.commit()
-            res = self.user.cursor.fetchone()
+            res = cursor1.fetchone()
+            cursor1.close()
 
             if res is not None:
                 print(res[1],'登录成功')
                 conf.suc_login = 1
                 conf.sno=int(self.username)
                 conf.password=self.password
+            else:
+                print('账密错误',self.username,self.password)
+                conf.suc_login = 0
         except BaseException:
             self.user.db.rollback()
             print('登录失败')
             self.suc_login=0
             conf.suc_login = 0
+        self.user.db.close()
 
     def update_password(self):
         print('start update')

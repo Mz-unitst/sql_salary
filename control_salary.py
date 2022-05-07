@@ -30,7 +30,7 @@ class salary_table(QMainWindow, Ui_salary_window):
             self.update_sumsalary()
 
             self.user.cursor.execute(
-                'select sno,sname,dname,bsalary,sumbonous,sumfine,sumsalary,date from salary order by sno,date limit 20')
+                'select sno,sname,dname,bsalary,sumbonous,sumfine,sumsalary,date from salary order by sno,date limit 200')
             self.user.db.commit()
             res = self.user.cursor.fetchall()
             # print('salary:',res)
@@ -185,7 +185,7 @@ class salary_table(QMainWindow, Ui_salary_window):
 
     def update_sumsalary(self):
         try:
-            sql_update_sumsalry = 'update salary set sumsalary=bsalary+sumbonous+sumfine;'
+            sql_update_sumsalry = 'update salary set sumsalary=bsalary+sumbonous-sumfine;'
             self.user.cursor.execute(sql_update_sumsalry)
             self.user.db.commit()
         except:

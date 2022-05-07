@@ -21,10 +21,11 @@ class staff_salary_table(QMainWindow, Ui_staff_salary_window):
         self.sno = 12
         self.staffsalarytable.setModel(self.modell)
         # self.test_func()
-        self.init_staff_salary()
+        # self.init_staff_salary()
 
     def init_staff_salary(self):  # 刷新页面
-        sql_update_sumsalry = 'update salary set sumsalary=bsalary+sumbonous+sumfine;'
+        # print(conf.sno)
+        sql_update_sumsalry = 'update salary set sumsalary=bsalary+sumbonous-sumfine;'
         self.user.cursor.execute(sql_update_sumsalry)
         self.user.db.commit()
         sql = """
@@ -36,6 +37,8 @@ class staff_salary_table(QMainWindow, Ui_staff_salary_window):
         for i in res:
             for j in range(8):
                 self.modell.setItem(cur_row, j, QStandardItem(str(i[j])))
+
+        self.show()
 
     def test_func(self):
         res_status = self.user.cursor.execute(

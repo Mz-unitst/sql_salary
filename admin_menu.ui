@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>378</width>
-    <height>300</height>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,6 +50,32 @@
    </property>
    <property name="text">
     <string>查询部门平均工资</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="fine_button">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>270</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>修改罚金</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bonous_button">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>340</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>修改奖金</string>
    </property>
   </widget>
  </widget>

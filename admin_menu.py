@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_admin_menu(object):
     def setupUi(self, admin_menu):
         admin_menu.setObjectName("admin_menu")
-        admin_menu.resize(378, 300)
+        admin_menu.resize(378, 414)
         self.base_button = QtWidgets.QPushButton(admin_menu)
         self.base_button.setGeometry(QtCore.QRect(90, 50, 191, 51))
         self.base_button.setObjectName("base_button")
@@ -24,6 +24,12 @@ class Ui_admin_menu(object):
         self.department_button = QtWidgets.QPushButton(admin_menu)
         self.department_button.setGeometry(QtCore.QRect(90, 200, 191, 51))
         self.department_button.setObjectName("department_button")
+        self.fine_button = QtWidgets.QPushButton(admin_menu)
+        self.fine_button.setGeometry(QtCore.QRect(90, 270, 191, 51))
+        self.fine_button.setObjectName("fine_button")
+        self.bonous_button = QtWidgets.QPushButton(admin_menu)
+        self.bonous_button.setGeometry(QtCore.QRect(90, 340, 191, 51))
+        self.bonous_button.setObjectName("bonous_button")
 
         self.retranslateUi(admin_menu)
         QtCore.QMetaObject.connectSlotsByName(admin_menu)
@@ -34,3 +40,5 @@ class Ui_admin_menu(object):
         self.base_button.setText(_translate("admin_menu", "修改基本工资"))
         self.salary_button.setText(_translate("admin_menu", "查询工资流水"))
         self.department_button.setText(_translate("admin_menu", "查询部门平均工资"))
+        self.fine_button.setText(_translate("admin_menu", "修改罚金"))
+        self.bonous_button.setText(_translate("admin_menu", "修改奖金"))
