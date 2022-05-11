@@ -5,9 +5,9 @@ class User:
     def __init__(self):
         try:
             self.db = pymysql.connect(
-                host='rm-bp1fhm86orq5947nsso.mysql.rds.aliyuncs.com',
-                user='mz',
-                password='Cxy84382',
+                host='',
+                user='',
+                password='',
                 database='salary',connect_timeout=30)
             # cursor是一个对象，执行的命令时execute, 返回的结果存于fetchone
             self.cursor = self.db.cursor()
